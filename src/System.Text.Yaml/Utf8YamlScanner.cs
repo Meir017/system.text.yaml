@@ -658,7 +658,6 @@ internal sealed class Utf8YamlScanner
         var content = _sbValue;
         var leadingBreak = _sbLeadingBreak;
         var trailingBreaks = _sbTrailingBreaks;
-        var hasLeadingBlanks = false;
         var blockIndentDetected = blockIndent > 0;
 
         // Eat leading empty lines and detect indent
