@@ -92,9 +92,21 @@ var yaml = """
       name: web
     """;
 
-var results = YamlSerializer.DeserializeAll<Dictionary<string, object>>(yaml);
-// results[0]["kind"] == "Namespace"
-// results[1]["kind"] == "Service"
+var results = YamlSerializer.DeserializeAll<KubernetesResource>(yaml);
+// results[0].Kind == "Namespace"
+// results[1].Kind == "Service"
+
+public class KubernetesResource
+{
+    public string ApiVersion { get; set; }
+    public string Kind { get; set; }
+    public ResourceMetadata Metadata { get; set; }
+}
+
+public class ResourceMetadata
+{
+    public string Name { get; set; }
+}
 ```
 
 ### Anchors, aliases, and merge keys
@@ -110,9 +122,21 @@ var yaml = """
       retries: 5
     """;
 
-var config = YamlSerializer.Deserialize<Dictionary<string, Dictionary<string, int>>>(yaml);
-// config["production"]["timeout"] == 30  (inherited)
-// config["production"]["retries"] == 5   (overridden)
+var config = YamlSerializer.Deserialize<EnvironmentConfig>(yaml);
+// config.Production.Timeout == 30  (inherited)
+// config.Production.Retries == 5   (overridden)
+
+public class EnvironmentConfig
+{
+    public RetrySettings Defaults { get; set; }
+    public RetrySettings Production { get; set; }
+}
+
+public class RetrySettings
+{
+    public int Timeout { get; set; }
+    public int Retries { get; set; }
+}
 ```
 
 ### Block scalars
@@ -127,9 +151,15 @@ var yaml = """
       paragraph.
     """;
 
-var result = YamlSerializer.Deserialize<Dictionary<string, string>>(yaml);
-// result["literal"] == "Line 1\nLine 2\n"
-// result["folded"]  == "This is a long paragraph.\n"
+var result = YamlSerializer.Deserialize<BlockScalarExample>(yaml);
+// result.Literal == "Line 1\nLine 2\n"
+// result.Folded  == "This is a long paragraph.\n"
+
+public class BlockScalarExample
+{
+    public string Literal { get; set; }
+    public string Folded { get; set; }
+}
 ```
 
 ### Configuration options
