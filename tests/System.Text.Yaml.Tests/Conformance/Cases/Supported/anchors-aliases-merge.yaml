@@ -1,0 +1,7 @@
+defaults: &defaults
+  enabled: true
+  retry: 3
+prod:
+  <<: *defaults
+  retry: 5
+alias: *defaults

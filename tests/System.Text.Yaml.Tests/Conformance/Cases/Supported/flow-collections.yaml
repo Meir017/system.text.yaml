@@ -1,0 +1,3 @@
+name: Ada
+tags: [yaml, parser, core]
+settings: { retry: 2, enabled: true }

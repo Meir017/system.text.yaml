@@ -1,0 +1,3 @@
+plain: true
+taggedString: !!str true
+taggedInt: !!int 42

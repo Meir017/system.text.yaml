@@ -1,0 +1,14 @@
+{
+  "defaults": {
+    "enabled": true,
+    "retry": 3
+  },
+  "prod": {
+    "enabled": true,
+    "retry": 5
+  },
+  "alias": {
+    "enabled": true,
+    "retry": 3
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Ada",
+  "enabled": true,
+  "items": [
+    "one",
+    "two"
+  ]
+}

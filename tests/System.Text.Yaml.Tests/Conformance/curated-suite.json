@@ -1,0 +1,87 @@
+{
+  "supported": [
+    {
+      "id": "basic-mapping",
+      "description": "Nested mappings, sequences, nulls, booleans, and numbers",
+      "input": "Cases/Supported/basic-mapping.yaml",
+      "expected": "Cases/Supported/basic-mapping.expected.json"
+    },
+    {
+      "id": "document-markers-comments",
+      "description": "Document markers and comments are ignored during parsing",
+      "input": "Cases/Supported/document-markers-comments.yaml",
+      "expected": "Cases/Supported/document-markers-comments.expected.json"
+    },
+    {
+      "id": "quoted-scalars-and-escapes",
+      "description": "Single-quoted and double-quoted scalars keep expected text semantics",
+      "input": "Cases/Supported/quoted-scalars-and-escapes.yaml",
+      "expected": "Cases/Supported/quoted-scalars-and-escapes.expected.json"
+    },
+    {
+      "id": "block-scalars",
+      "description": "Literal and folded block scalars preserve line behavior",
+      "input": "Cases/Supported/block-scalars.yaml",
+      "expected": "Cases/Supported/block-scalars.expected.json"
+    },
+    {
+      "id": "flow-collections",
+      "description": "Flow mappings and sequences interoperate with block mappings",
+      "input": "Cases/Supported/flow-collections.yaml",
+      "expected": "Cases/Supported/flow-collections.expected.json"
+    },
+    {
+      "id": "anchors-aliases-merge",
+      "description": "Anchors, aliases, and merge keys are resolved into the loaded graph",
+      "input": "Cases/Supported/anchors-aliases-merge.yaml",
+      "expected": "Cases/Supported/anchors-aliases-merge.expected.json"
+    },
+    {
+      "id": "json-subset-with-markers",
+      "description": "JSON subset documents wrapped in YAML markers stay compatible",
+      "input": "Cases/Supported/json-subset-with-markers.yaml",
+      "expected": "Cases/Supported/json-subset-with-markers.expected.json"
+    },
+    {
+      "id": "yaml11-legacy-scalars",
+      "description": "YAML 1.1 compatibility mode accepts legacy booleans and hex integers",
+      "input": "Cases/Supported/yaml11-legacy-scalars.yaml",
+      "expected": "Cases/Supported/yaml11-legacy-scalars.expected.json",
+      "options": {
+        "schema": "Yaml11"
+      }
+    },
+    {
+      "id": "failsafe-explicit-tags",
+      "description": "Failsafe mode leaves plain scalars as strings unless explicitly tagged",
+      "input": "Cases/Supported/failsafe-explicit-tags.yaml",
+      "expected": "Cases/Supported/failsafe-explicit-tags.expected.json",
+      "options": {
+        "schema": "Failsafe"
+      }
+    },
+    {
+      "id": "duplicate-keys-last-wins",
+      "description": "The default duplicate-key policy keeps the last value",
+      "input": "Cases/Supported/duplicate-keys-last-wins.yaml",
+      "expected": "Cases/Supported/duplicate-keys-last-wins.expected.json",
+      "options": {
+        "duplicateKeyHandling": "Replace"
+      }
+    },
+    {
+      "id": "complex-mapping-key",
+      "description": "Explicit complex mapping keys are projected to stable string names while staying available in the DOM",
+      "input": "Cases/Supported/complex-mapping-key.yaml",
+      "expected": "Cases/Supported/complex-mapping-key.expected.json"
+    },
+    {
+      "id": "directives-and-indentation-indicators",
+      "description": "Version and tag directives compose correctly and block scalars honor explicit indentation indicators",
+      "input": "Cases/Supported/directives-and-indentation-indicators.yaml",
+      "expected": "Cases/Supported/directives-and-indentation-indicators.expected.json"
+    }
+  ],
+  "unsupported": [
+  ]
+}

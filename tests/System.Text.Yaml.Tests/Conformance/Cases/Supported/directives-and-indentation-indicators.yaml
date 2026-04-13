@@ -1,0 +1,7 @@
+%YAML 1.1
+%TAG !e! tag:example.com,2024:
+---
+typed: !e!user Ada
+indented: |2-
+    first
+      second
