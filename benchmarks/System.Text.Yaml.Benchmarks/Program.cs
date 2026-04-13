@@ -1,6 +1,4 @@
 using System.Text;
-using System.Text.Json.Serialization;
-using System.Text.Json.Serialization.Metadata;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using SystemTextYamlSerializer = System.Text.Yaml.YamlSerializer;
@@ -338,35 +336,23 @@ public sealed partial class Package
 }
 
 // ---------------------------------------------------------------------------
-// Source-generated context for System.Text.Yaml
-// ---------------------------------------------------------------------------
-[JsonSerializable(typeof(SampleDocument))]
-internal partial class BenchmarkYamlContext : System.Text.Yaml.YamlSerializerContext
-{
-}
-
-// ---------------------------------------------------------------------------
-// Benchmark 8: Source-gen vs reflection serialization
+// Benchmark 8: Reflection serialization comparison
 // ---------------------------------------------------------------------------
 [MemoryDiagnoser]
 [ShortRunJob]
 public class SourceGenVsReflectionBenchmarks
 {
     private readonly SampleDocument _value = SampleDocument.Create();
-    private readonly JsonTypeInfo<SampleDocument> _typeInfo = BenchmarkYamlContext.Default.SampleDocument;
 
     [Benchmark(Baseline = true)]
     public string Reflection() => SystemTextYamlSerializer.Serialize(_value);
-
-    [Benchmark]
-    public string SourceGen() => SystemTextYamlSerializer.Serialize(_value, _typeInfo);
 
     [Benchmark]
     public string VYaml_SourceGen() => VYamlSerializer.SerializeToString(_value);
 }
 
 // ---------------------------------------------------------------------------
-// Benchmark 9: Source-gen vs reflection deserialization
+// Benchmark 9: Reflection deserialization comparison
 // ---------------------------------------------------------------------------
 [MemoryDiagnoser]
 [ShortRunJob]
@@ -394,13 +380,9 @@ public class SourceGenVsReflectionDeserializationBenchmarks
         """;
 
     private readonly string _yaml = BlockYaml;
-    private readonly JsonTypeInfo<SampleDocument> _typeInfo = BenchmarkYamlContext.Default.SampleDocument;
 
     [Benchmark(Baseline = true)]
     public SampleDocument? Reflection() => SystemTextYamlSerializer.Deserialize<SampleDocument>(_yaml);
-
-    [Benchmark]
-    public SampleDocument? SourceGen() => SystemTextYamlSerializer.Deserialize(_yaml, _typeInfo);
 }
 
 // ---------------------------------------------------------------------------
