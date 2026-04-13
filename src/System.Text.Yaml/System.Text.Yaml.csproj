@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>System.Text.Yaml</PackageId>
+    <Description>High-performance YAML 1.2 serialization library for .NET. Zero external dependencies.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="System.Text.Yaml.Tests" />
+  </ItemGroup>
+
+</Project>

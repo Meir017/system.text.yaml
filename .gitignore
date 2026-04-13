@@ -1,0 +1,51 @@
+# .NET
+bin/
+obj/
+artifacts/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+
+# BenchmarkDotNet
+BenchmarkDotNet.Artifacts/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test results
+TestResults/
+*.trx
+
+# Temp files
+test_bug.yaml
+test_duplicate_key_metadata.cs
+debug_scanner.csx
