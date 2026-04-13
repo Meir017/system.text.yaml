@@ -4,6 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <PackageId>System.Text.Yaml</PackageId>
     <Description>High-performance YAML 1.2 serialization library for .NET. Zero external dependencies.</Description>
   </PropertyGroup>
