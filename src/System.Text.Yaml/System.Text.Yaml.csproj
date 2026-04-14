@@ -5,9 +5,21 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <PackageId>System.Text.Yaml</PackageId>
+    <PackageId>Meir.System.Text.Yaml</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Meir Blachman</Authors>
     <Description>High-performance YAML 1.2 serialization library for .NET. Zero external dependencies.</Description>
+    <PackageTags>yaml;serialization;deserialization;yaml12;parser</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Meir017/system.text.yaml</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Meir017/system.text.yaml</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
 
   <ItemGroup>
     <InternalsVisibleTo Include="System.Text.Yaml.Tests" />

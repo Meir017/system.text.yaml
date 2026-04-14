@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [master, main]
+    branches: [main]
   pull_request:
-    branches: [master, main]
+    branches: [main]
 
 jobs:
   build:
@@ -30,9 +30,19 @@ jobs:
       - name: Test
         run: dotnet test --no-build -c Release --logger "trx;LogFileName=results.trx"
 
+      - name: Pack
+        run: dotnet pack src/System.Text.Yaml/System.Text.Yaml.csproj --no-build -c Release -o ./artifacts
+
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: test-results-${{ matrix.os }}
           path: "**/*.trx"
+
+      - name: Upload NuGet package
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-package
+          path: ./artifacts/*.nupkg
